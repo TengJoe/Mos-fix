@@ -72,10 +72,13 @@ extension ScrollEvent {
             }
             // 根据输入事件源增强判断
             if ScrollEvent.isTrackpadCallCache {
-                if let specialProcessID = Utils.getRunningApplicationProcessIdentifier(withBundleIdentifier: SPECIAL_EVENT_SOURCE_APPLICATION.logitechOptions)?.processIdentifier {
-                    let sourceProcessID = event.getIntegerValueField(.eventSourceUnixProcessID)
-                    if sourceProcessID == specialProcessID {
-                        ScrollEvent.isTrackpadCallCache = false
+                let sourceProcessID = event.getIntegerValueField(.eventSourceUnixProcessID)
+                for bundleIdentifier in SPECIAL_EVENT_SOURCE_APPLICATION.bundleIdentifiers {
+                    if let specialProcessID = Utils.getRunningApplicationProcessIdentifier(withBundleIdentifier: bundleIdentifier)?.processIdentifier {
+                        if sourceProcessID == specialProcessID {
+                            ScrollEvent.isTrackpadCallCache = false
+                            break
+                        }
                     }
                 }
             }

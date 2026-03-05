@@ -81,24 +81,27 @@ class ScrollUtils {
         guard let validRunningApplication = runningApplication else {
             return false
         }
-        // 10.15 以上直接判断是否为 Dock
-        // FIXME: 当 Dock 的目录设置为 "叠放" 时, 应用对 Dock 的目录预览无法平滑, 且发送平滑后的滚动事件无法被识别, 需要找别的方式
-        if #available(OSX 10.15, *) {
-            if validRunningApplication.executableURL?.path == "/System/Library/CoreServices/Dock.app/Contents/MacOS/Dock" {
-                launchpadActiveCache = true
-                return launchpadActiveCache
-            }
+        // 仅当目标是 Dock 时才检测 Launchpad 活动
+        if validRunningApplication.executableURL?.path != "/System/Library/CoreServices/Dock.app/Contents/MacOS/Dock" {
+            launchpadActiveCache = false
+            return false
         }
         // 如果距离上次检测时间大于 1s, 则重新检测一遍, 否则直接返回上次的结果
         let nowTime = NSDate().timeIntervalSince1970
         if nowTime - launchpadLastDetectTime > 1.0 {
-            // 10.15以下需要根据 windowList 判断
-            let windowInfoList = CGWindowListCopyWindowInfo(CGWindowListOption.optionOnScreenOnly, CGWindowID(0)) as [AnyObject]?
-            for windowInfo in windowInfoList! {
-                let windowName = windowInfo[kCGWindowName]!
-                if windowName != nil && windowName as! String == "LPSpringboard" {
-                    launchpadActiveCache = true
-                    return true
+            // 仅在出现 Launchpad 窗口时才屏蔽平滑，避免误伤 Dock 文件夹/叠放视图
+            let windowInfoList = CGWindowListCopyWindowInfo(CGWindowListOption.optionOnScreenOnly, CGWindowID(0)) as? [[String: Any]]
+            if let validWindowInfoList = windowInfoList {
+                for windowInfo in validWindowInfoList {
+                    guard let ownerName = windowInfo[kCGWindowOwnerName as String] as? String, ownerName == "Dock" else {
+                        continue
+                    }
+                    let windowName = (windowInfo[kCGWindowName as String] as? String) ?? ""
+                    if windowName == "LPSpringboard" || windowName == "Launchpad" {
+                        launchpadActiveCache = true
+                        launchpadLastDetectTime = nowTime
+                        return true
+                    }
                 }
             }
             launchpadActiveCache = false

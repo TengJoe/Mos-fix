@@ -45,7 +45,8 @@ class ScrollPoster {
 extension ScrollPoster {
     func update(event: CGEvent, proxy: CGEventTapProxy, duration: Double, y: Double, x: Double, speed: Double, amplification: Double = 1) -> Self {
         // 更新依赖数据
-        ref.event = event
+        // 回调传入的 CGEvent 生命周期仅保证在回调期内可用，先复制再跨线程使用
+        ref.event = event.copy()
         ref.proxy = proxy
         // 更新滚动配置
         self.duration = duration
