@@ -54,7 +54,10 @@ struct POPOVER_IDENTIFIER {
 
 // 事件处理应用
 struct SPECIAL_EVENT_SOURCE_APPLICATION {
-    static let logitechOptions = "com.logitech.manager.daemon"
+    static let bundleIdentifiers = [
+        "com.logitech.manager.daemon", // Logitech Options+
+        "com.apple.ScreenContinuity",  // iPhone Mirroring
+    ]
 }
 
 // 远程桌面应用标识列表（用于检测 VNC 等远程滚动事件）
@@ -72,6 +75,7 @@ struct REMOTE_CONTROL_APPLICATION {
         "com.anydesk.anydesk",
         "com.parsec.www",
         "com.rustdesk.RustDesk",
+        "com.netease.uuremote",       // UU Remote Desktop
         "com.microsoft.rdc.macos",  // Microsoft Remote Desktop
         "com.realvnc.vncviewer",
         "com.tigervnc.vncviewer",
