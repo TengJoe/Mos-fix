@@ -12,6 +12,7 @@ This fork currently focuses on:
 - avoiding double smoothing in UU Remote Desktop sessions
 
 Detailed implementation notes live in [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md).
+Release-ready notes live in [docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md](docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md).
 
 ## Fixes in this fork
 
@@ -65,3 +66,4 @@ If you want the code-level details, read:
 详细修复日志见：
 
 - [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md)
+- [docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md](docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md)

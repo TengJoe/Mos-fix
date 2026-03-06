@@ -38,7 +38,7 @@ http://mos.caldis.me/
 - 改善 iPhone 镜像中的反转滚动兼容性
 - 避免 UU 远程桌面双重平滑
 
-详细说明见 [FORK_NOTES.md](FORK_NOTES.md) 和 [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md)。
+详细说明见 [FORK_NOTES.md](FORK_NOTES.md)、[docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md) 和 [docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md](docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md)。
 
 ## 下载及安装
 
