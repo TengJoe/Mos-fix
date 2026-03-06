@@ -1,3 +1,5 @@
+[中文](./FORK_NOTES.zh-CN.md) | [English](./FORK_NOTES.md)
+
 # Fork Notes
 
 This fork keeps upstream `Mos 4.0.0` as the base and adds a small set of targeted fixes for stability and compatibility.
@@ -51,19 +53,3 @@ This fork is not a feature fork. It is a maintenance fork intended to make daily
 If you want the code-level details, read:
 
 - [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md)
-
-## 中文说明
-
-这个 fork 基于上游 `Mos 4.0.0`，重点做了几项定向修复，不是功能分叉版。
-
-当前主要修复点：
-
-- 降低滚动时闪退概率
-- 恢复 Dock 文件夹/叠放视图中的平滑与反转滚动
-- 改善 iPhone 镜像中的反转滚动兼容性
-- 避免 UU 远程桌面双重平滑
-
-详细修复日志见：
-
-- [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md)
-- [docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md](docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md)
