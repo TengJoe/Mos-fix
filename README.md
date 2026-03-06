@@ -29,6 +29,17 @@ http://mos.caldis.me/
 - 支持自订鼠标快捷键, 绑定各种系统快捷键
 - 支持按应用处理不同的配置策略
 
+## Fork 说明
+
+这个 fork 基于上游 `Mos 4.0.0`, 主要补了几项稳定性和兼容性修复, 不是功能分叉版。
+
+- 降低滚动时意外闪退概率
+- 修复 Dock 文件夹/叠放视图中的平滑与反转滚动失效
+- 改善 iPhone 镜像中的反转滚动兼容性
+- 避免 UU 远程桌面双重平滑
+
+详细说明见 [FORK_NOTES.md](FORK_NOTES.md) 和 [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md)。
+
 ## 下载及安装
 
 ### Homebrew安装

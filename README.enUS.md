@@ -38,6 +38,17 @@ http://mos.caldis.me/
 - Localization moved to Xcode string catalogs; new strings for buttons and shortcuts land alongside a multilingual website refresh.
 - Mission Control, app switching, and other edge cases no longer break smooth scrolling, making daily use more reliable.
 
+## Fork Notes
+
+This fork stays close to upstream `Mos 4.0.0` and only adds a small set of stability and compatibility fixes.
+
+- reduces unexpected scrolling-related crash risk
+- restores smooth/reverse scrolling in Dock folder and stack views
+- improves reverse-scroll compatibility in iPhone Mirroring
+- avoids double smoothing in UU Remote Desktop sessions
+
+See [FORK_NOTES.md](FORK_NOTES.md) and [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md) for details.
+
 
 ## Download & Install
 
