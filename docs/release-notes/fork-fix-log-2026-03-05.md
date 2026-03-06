@@ -1,3 +1,5 @@
+[中文](./fork-fix-log-2026-03-05.zh-CN.md) | [English](./fork-fix-log-2026-03-05.md)
+
 # Fork Fix Log (2026-03-05)
 
 This log records fixes implemented on fork branch `codex/fix-cvdisplaylink-crash`.
@@ -38,7 +40,7 @@ This log records fixes implemented on fork branch `codex/fix-cvdisplaylink-crash
   - `Mos/ScrollCore/ScrollEvent.swift`
 
 ## Validation notes
-- Local `xcodebuild` validation is blocked in current environment because only Command Line Tools are active (`xcodebuild` requires full Xcode).
+- Local `xcodebuild` validation is now available in the current environment with full Xcode installed.
 - Runtime validation should be done on macOS with real devices/workflows:
   - 2.4G mouse scrolling in Dock folder stack/grid
   - iPhone Mirroring reverse scrolling

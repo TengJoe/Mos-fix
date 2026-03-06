@@ -20,7 +20,9 @@ class PreferencesUpdatesViewController: NSViewController {
         // 版本号
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")!
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")!
-        versionLabel.stringValue = "\(NSLocalizedString("Current Version", comment: "")): \(version as! String) · \(build as! String)"
+        let forkLabel = Bundle.main.object(forInfoDictionaryKey: "MosForkReleaseLabel") as? String
+        let releaseLabelSuffix = forkLabel.map { " · \($0)" } ?? ""
+        versionLabel.stringValue = "\(NSLocalizedString("Current Version", comment: "")): \(version as! String) · \(build as! String)\(releaseLabelSuffix)"
 
         checkOnAppStartCheckbox.state = Options.shared.update.checkOnAppStart ? .on : .off
         includingBetaVersionCheckbox.state = Options.shared.update.includingBetaVersion ? .on : .off

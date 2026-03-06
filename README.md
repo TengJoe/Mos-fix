@@ -12,7 +12,7 @@
 
 一个用于在MacOS上平滑你的鼠标滚动效果的小工具, 让你的滚轮爽如触控板。
 
-[中文](https://github.com/Caldis/Mos/blob/master/README.md) | [English](https://github.com/Caldis/Mos/blob/master/README.enUS.md) |
+[中文](./README.md) | [English](./README.enUS.md) |
 [Русский](https://github.com/Caldis/Mos/blob/master/README.ru.md) |
 [Indonesia](https://github.com/Caldis/Mos/blob/master/README.id.md)
 
@@ -38,7 +38,7 @@ http://mos.caldis.me/
 - 改善 iPhone 镜像中的反转滚动兼容性
 - 避免 UU 远程桌面双重平滑
 
-详细说明见 [FORK_NOTES.md](FORK_NOTES.md) 和 [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md)。
+详细说明见 [FORK_NOTES.zh-CN.md](FORK_NOTES.zh-CN.md)、[docs/release-notes/fork-fix-log-2026-03-05.zh-CN.md](docs/release-notes/fork-fix-log-2026-03-05.zh-CN.md) 和 [docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.zh-CN.md](docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.zh-CN.md)。
 
 ## 下载及安装
 

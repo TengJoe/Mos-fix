@@ -12,7 +12,7 @@
 
 A free & simple app to allow your mouse wheel to scroll smoothly on macOS.
 
-[中文](https://github.com/Caldis/Mos/blob/master/README.md) | [English](https://github.com/Caldis/Mos/blob/master/README.enUS.md) |
+[中文](./README.md) | [English](./README.enUS.md) |
 [Русский](https://github.com/Caldis/Mos/blob/master/README.ru.md)
 
 
@@ -47,7 +47,7 @@ This fork stays close to upstream `Mos 4.0.0` and only adds a small set of stabi
 - improves reverse-scroll compatibility in iPhone Mirroring
 - avoids double smoothing in UU Remote Desktop sessions
 
-See [FORK_NOTES.md](FORK_NOTES.md) and [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md) for details.
+See [FORK_NOTES.md](FORK_NOTES.md), [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md), and [docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md](docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md) for details.
 
 
 ## Download & Install
