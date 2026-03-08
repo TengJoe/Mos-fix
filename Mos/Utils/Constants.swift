@@ -54,7 +54,10 @@ struct POPOVER_IDENTIFIER {
 
 // 事件处理应用
 struct SPECIAL_EVENT_SOURCE_APPLICATION {
-    static let logitechOptions = "com.logitech.manager.daemon"
+    static let bundleIdentifiers = [
+        "com.logitech.manager.daemon", // Logitech Options+
+        "com.apple.ScreenContinuity",  // iPhone Mirroring
+    ]
 }
 
 // 远程桌面应用标识列表（用于检测 VNC 等远程滚动事件）

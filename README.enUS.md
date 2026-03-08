@@ -12,7 +12,7 @@
 
 A free & simple app to allow your mouse wheel to scroll smoothly on macOS.
 
-[中文](https://github.com/Caldis/Mos/blob/master/README.md) | [English](https://github.com/Caldis/Mos/blob/master/README.enUS.md) |
+[中文](./README.md) | [English](./README.enUS.md) |
 [Русский](https://github.com/Caldis/Mos/blob/master/README.ru.md)
 
 
@@ -37,6 +37,17 @@ http://mos.caldis.me/
 - The shortcut catalog now includes screenshots, screen recording, space switching, and more—default mappings are smarter out of the box.
 - Localization moved to Xcode string catalogs; new strings for buttons and shortcuts land alongside a multilingual website refresh.
 - Mission Control, app switching, and other edge cases no longer break smooth scrolling, making daily use more reliable.
+
+## Fork Notes
+
+This fork now tracks upstream `Mos 4.0.1` and only keeps a small set of fork-specific compatibility changes plus release identity/docs.
+
+- improves reverse-scroll compatibility in iPhone Mirroring
+- keeps stricter Dock / Launchpad detection to avoid false positives in Dock folders and stacks
+- adds the in-app build label `TengJoe Codex Fix`
+- provides clickable Chinese / English doc variants for fork readers
+
+See [FORK_NOTES.md](FORK_NOTES.md), [docs/release-notes/fork-fix-log-2026-03-08.md](docs/release-notes/fork-fix-log-2026-03-08.md), and [docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.md](docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.md) for details.
 
 
 ## Download & Install

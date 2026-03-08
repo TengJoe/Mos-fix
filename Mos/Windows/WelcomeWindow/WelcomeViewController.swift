@@ -20,7 +20,10 @@ class WelcomeViewController: NSViewController {
     override func viewDidLoad() {
         // 获取版本号
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")!
-        versionLabel.stringValue = "\(NSLocalizedString("Current Version", comment: "")) : \(version as! String)"
+        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")!
+        let forkLabel = Bundle.main.object(forInfoDictionaryKey: "MosForkReleaseLabel") as? String
+        let releaseLabelSuffix = forkLabel.map { " · \($0)" } ?? ""
+        versionLabel.stringValue = "\(NSLocalizedString("Current Version", comment: "")) : \(version as! String) · \(build as! String)\(releaseLabelSuffix)"
     }
     override func viewWillAppear() {
         // 启动定时器检测权限, 当拥有授权时启动滚动处理

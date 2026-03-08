@@ -12,7 +12,7 @@
 
 一个用于在MacOS上平滑你的鼠标滚动效果的小工具, 让你的滚轮爽如触控板。
 
-[中文](https://github.com/Caldis/Mos/blob/master/README.md) | [English](https://github.com/Caldis/Mos/blob/master/README.enUS.md) |
+[中文](./README.md) | [English](./README.enUS.md) |
 [Русский](https://github.com/Caldis/Mos/blob/master/README.ru.md) |
 [Indonesia](https://github.com/Caldis/Mos/blob/master/README.id.md)
 
@@ -28,6 +28,17 @@ http://mos.caldis.me/
 - 支持分离触控板/鼠标事件, 可按垂直/水平方向分别设置平滑与反向
 - 支持自订鼠标快捷键, 绑定各种系统快捷键
 - 支持按应用处理不同的配置策略
+
+## Fork 说明
+
+这个 fork 基于上游 `Mos 4.0.1`，只保留了上游尚未覆盖的少量兼容性补丁，并增加了 fork 身份标识与文档。
+
+- 改善 iPhone 镜像中的反转滚动兼容性
+- 保留更严格的 Dock / Launchpad 区分逻辑，减少 Dock 文件夹与叠放视图被误伤
+- 应用内版本文案会显示 `TengJoe Codex Fix`
+- 关键文档提供中英文点击切换
+
+详细说明见 [FORK_NOTES.zh-CN.md](FORK_NOTES.zh-CN.md)、[docs/release-notes/fork-fix-log-2026-03-08.zh-CN.md](docs/release-notes/fork-fix-log-2026-03-08.zh-CN.md) 和 [docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.zh-CN.md](docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.zh-CN.md)。
 
 ## 下载及安装
 
