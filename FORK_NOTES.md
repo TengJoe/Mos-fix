@@ -2,54 +2,40 @@
 
 # Fork Notes
 
-This fork keeps upstream `Mos 4.0.0` as the base and adds a small set of targeted fixes for stability and compatibility.
+This fork now tracks upstream `Mos 4.0.1` and only keeps the changes that are still fork-specific after upstream absorbed the crash and remote-desktop fixes from `4.0.0`.
 
 ## Summary
 
 This fork currently focuses on:
 
-- reducing the scrolling crash risk around `CVDisplayLink`
-- restoring smooth/reverse scrolling in Dock folder and stack views
 - improving reverse-scroll compatibility in iPhone Mirroring
-- avoiding double smoothing in UU Remote Desktop sessions
+- keeping stricter Dock / Launchpad detection for pre-macOS-26 Dock folder and stack scenarios
+- labeling in-app builds as `TengJoe Codex Fix`
+- providing clickable Chinese / English doc variants for readers
 
-Detailed implementation notes live in [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md).
-Release-ready notes live in [docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md](docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md).
+Detailed implementation notes live in [docs/release-notes/fork-fix-log-2026-03-08.md](docs/release-notes/fork-fix-log-2026-03-08.md).
+Release-ready notes live in [docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.md](docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.md).
 
-## Fixes in this fork
+## Remaining fork-specific patches
 
-### 1. Scrolling crash mitigation
-
-- Scope: unexpected app exits while scrolling
-- Upstream issue: `#868`
-- Change: the scroll event is copied before it crosses from the event callback into the display-link driven posting path
-- Effect: lowers the chance of invalid event lifetime usage and related crashes
-
-### 2. Dock folder smooth/reverse scrolling
-
-- Scope: Dock right-side folders, stacks, or similar Dock-hosted scrolling views
-- Upstream issues: `#851`, `#878`
-- Change: Launchpad detection was narrowed so Dock is no longer treated as Launchpad unconditionally
-- Effect: reverse scrolling and smooth scrolling can keep working in Dock folder contexts
-
-### 3. iPhone Mirroring compatibility
+### 1. iPhone Mirroring compatibility
 
 - Scope: reverse scrolling inside iPhone Mirroring
-- Upstream issues: `#655`, `#871`
-- Change: `com.apple.ScreenContinuity` was added as a special event source and the source matching logic was generalized from a single identifier to a list
+- Fork change: `com.apple.ScreenContinuity` is treated as a special event source and shares the same non-trackpad classification path as Logitech Options+
 - Effect: improves reverse-scroll behavior when events originate from iPhone Mirroring
 
-### 4. UU Remote Desktop compatibility
+### 2. Dock folder and stack protection
 
-- Scope: remote sessions where both sides use Mos
-- Upstream issue: `#879`
-- Change: `com.netease.uuremote` was added to the remote-control application list
-- Effect: avoids double smoothing and the resulting over-acceleration or unstable scroll feel
+- Scope: Dock right-side folders, stacks, and similar Dock-hosted scrolling views on systems where Launchpad still shares Dock process behavior
+- Fork change: Dock is no longer treated as Launchpad unconditionally; Launchpad suppression only applies when Launchpad windows are actually present
+- Effect: reduces false positives that disable smoothing/reverse logic in Dock folder contexts
 
-## Positioning
+## Upstream status
 
-This fork is not a feature fork. It is a maintenance fork intended to make daily use more stable in a few high-friction scenarios.
+Upstream `4.0.1` already includes:
 
-If you want the code-level details, read:
+- the `CVDisplayLink` / cross-thread scroll-posting crash fix
+- UU Remote Desktop support
+- a macOS 26+ Launchpad skip
 
-- [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md)
+This fork therefore no longer carries the old crash patch separately.

@@ -31,14 +31,14 @@ http://mos.caldis.me/
 
 ## Fork 说明
 
-这个 fork 基于上游 `Mos 4.0.0`, 主要补了几项稳定性和兼容性修复, 不是功能分叉版。
+这个 fork 基于上游 `Mos 4.0.1`，只保留了上游尚未覆盖的少量兼容性补丁，并增加了 fork 身份标识与文档。
 
-- 降低滚动时意外闪退概率
-- 修复 Dock 文件夹/叠放视图中的平滑与反转滚动失效
 - 改善 iPhone 镜像中的反转滚动兼容性
-- 避免 UU 远程桌面双重平滑
+- 保留更严格的 Dock / Launchpad 区分逻辑，减少 Dock 文件夹与叠放视图被误伤
+- 应用内版本文案会显示 `TengJoe Codex Fix`
+- 关键文档提供中英文点击切换
 
-详细说明见 [FORK_NOTES.zh-CN.md](FORK_NOTES.zh-CN.md)、[docs/release-notes/fork-fix-log-2026-03-05.zh-CN.md](docs/release-notes/fork-fix-log-2026-03-05.zh-CN.md) 和 [docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.zh-CN.md](docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.zh-CN.md)。
+详细说明见 [FORK_NOTES.zh-CN.md](FORK_NOTES.zh-CN.md)、[docs/release-notes/fork-fix-log-2026-03-08.zh-CN.md](docs/release-notes/fork-fix-log-2026-03-08.zh-CN.md) 和 [docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.zh-CN.md](docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.zh-CN.md)。
 
 ## 下载及安装
 
