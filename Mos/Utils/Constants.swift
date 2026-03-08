@@ -75,10 +75,10 @@ struct REMOTE_CONTROL_APPLICATION {
         "com.anydesk.anydesk",
         "com.parsec.www",
         "com.rustdesk.RustDesk",
-        "com.netease.uuremote",       // UU Remote Desktop
         "com.microsoft.rdc.macos",  // Microsoft Remote Desktop
         "com.realvnc.vncviewer",
         "com.tigervnc.vncviewer",
+        "com.netease.uuremote",  // UU 远程桌面
     ]
 }
 

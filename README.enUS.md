@@ -40,14 +40,14 @@ http://mos.caldis.me/
 
 ## Fork Notes
 
-This fork stays close to upstream `Mos 4.0.0` and only adds a small set of stability and compatibility fixes.
+This fork now tracks upstream `Mos 4.0.1` and only keeps a small set of fork-specific compatibility changes plus release identity/docs.
 
-- reduces unexpected scrolling-related crash risk
-- restores smooth/reverse scrolling in Dock folder and stack views
 - improves reverse-scroll compatibility in iPhone Mirroring
-- avoids double smoothing in UU Remote Desktop sessions
+- keeps stricter Dock / Launchpad detection to avoid false positives in Dock folders and stacks
+- adds the in-app build label `TengJoe Codex Fix`
+- provides clickable Chinese / English doc variants for fork readers
 
-See [FORK_NOTES.md](FORK_NOTES.md), [docs/release-notes/fork-fix-log-2026-03-05.md](docs/release-notes/fork-fix-log-2026-03-05.md), and [docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md](docs/release-notes/4.0.0-20260220.1-tengjoe-codexfix.md) for details.
+See [FORK_NOTES.md](FORK_NOTES.md), [docs/release-notes/fork-fix-log-2026-03-08.md](docs/release-notes/fork-fix-log-2026-03-08.md), and [docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.md](docs/release-notes/4.0.1-20260308.1-tengjoe-codexfix.md) for details.
 
 
 ## Download & Install

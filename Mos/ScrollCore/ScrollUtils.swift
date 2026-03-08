@@ -13,6 +13,7 @@ class ScrollUtils {
     // 单例
     static let shared = ScrollUtils()
     init() { NSLog("Module initialized: ScrollUtils") }
+    private let syntheticSmoothEventMarker: Int64 = 0x4D4F53534D4F4F54
     
     // 判断事件目标是否变化
     var previousScrollTargetProcessID = 0.0 // 用于在鼠标移动到不同窗口时停止滚动
@@ -25,19 +26,12 @@ class ScrollUtils {
         return previousScrollTargetProcessID != currentScrollTargetProcessID && previousScrollTargetProcessID != 0.0
     }
     
-    // 发送事件
-    func postScrollEvent(_ proxy: CGEventTapProxy, _ event: CGEvent, _ value: ( y: Double, x: Double )) {
-        if let eventClone = event.copy() {
-            eventClone.setDoubleValueField(.scrollWheelEventPointDeltaAxis1, value: value.y)
-            eventClone.setDoubleValueField(.scrollWheelEventPointDeltaAxis2, value: value.x)
-            eventClone.setDoubleValueField(.scrollWheelEventFixedPtDeltaAxis1, value: 0.0)
-            eventClone.setDoubleValueField(.scrollWheelEventFixedPtDeltaAxis2, value: 0.0)
-            eventClone.setDoubleValueField(.scrollWheelEventIsContinuous, value: 1.0)
-            // EventTapProxy 标识了 EventTapCallback 在事件流中接收到事件的特定位置, 其粒度小于 tap 本身
-            // 使用 tapPostEvent 可以将自定义的事件发布到 proxy 标识的位置, 避免被 EventTapCallback 本身重复接收或处理
-            // 新发布的事件将早于 EventTapCallback 所处理的事件进入系统, 也如同 EventTapCallback 所处理的事件, 会被所有后续的 EventTap 接收
-            eventClone.tapPostEvent(proxy)
-        }
+    func markSyntheticSmoothEvent(_ event: CGEvent) {
+        event.setIntegerValueField(.eventSourceUserData, value: syntheticSmoothEventMarker)
+    }
+
+    func isSyntheticSmoothEvent(_ event: CGEvent) -> Bool {
+        return event.getIntegerValueField(.eventSourceUserData) == syntheticSmoothEventMarker
     }
     
     // 从 CGEvent 中携带的 PID 获取应用信息
@@ -81,6 +75,10 @@ class ScrollUtils {
         guard let validRunningApplication = runningApplication else {
             return false
         }
+        // macOS 26+ LaunchPad 已无分页功能, 平滑滚动是预期行为, 无需特殊处理
+        if #available(macOS 26.0, *) {
+            return false
+        }
         // 仅当目标是 Dock 时才检测 Launchpad 活动
         if validRunningApplication.executableURL?.path != "/System/Library/CoreServices/Dock.app/Contents/MacOS/Dock" {
             launchpadActiveCache = false
@@ -89,7 +87,7 @@ class ScrollUtils {
         // 如果距离上次检测时间大于 1s, 则重新检测一遍, 否则直接返回上次的结果
         let nowTime = NSDate().timeIntervalSince1970
         if nowTime - launchpadLastDetectTime > 1.0 {
-            // 仅在出现 Launchpad 窗口时才屏蔽平滑，避免误伤 Dock 文件夹/叠放视图
+            // 仅在检测到 Launchpad 窗口时才屏蔽平滑，避免误伤 Dock 文件夹/叠放视图
             let windowInfoList = CGWindowListCopyWindowInfo(CGWindowListOption.optionOnScreenOnly, CGWindowID(0)) as? [[String: Any]]
             if let validWindowInfoList = windowInfoList {
                 for windowInfo in validWindowInfoList {
